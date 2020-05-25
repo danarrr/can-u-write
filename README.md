@@ -1,7 +1,7 @@
 ### 手写一个 XXX 系列
 
-- 手写 new 操作符
-- 手写 call/apply/bind
+- [手写 new 操作符](https://github.com/danarrr/can-u-write/blob/master/new.js)
+- [手写 call/apply/bind](https://github.com/danarrr/can-u-write/blob/master/call.js)
 - 手写防抖节流
 - 实现深浅克隆
 - 实现柯里化函数
