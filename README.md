@@ -9,3 +9,4 @@
 - 解析 url 为对象
 - 获取 cookie
 - 手写数组去重并排序
+- 手写 eventbus 事件
