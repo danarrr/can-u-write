@@ -12,19 +12,16 @@ class EventBus {
   }
 
   // 订阅事件
-  on = function (eventType, handler) {
-    if (!(eventType in this.handlers)) {
-      this.handlers[eventType] = [];
-    }
-    this.handlers[eventType].push(handler);
-    return this;
+  on = function (eventType, fn) {
+    this.handlers[eventType] = this.handlers[eventType] || [];
+    this.handlers[eventType].push(fn);
   };
 
   // 发布事件
   emit = function (eventType) {
     let handlerArgs = Array.prototype.slice.call(arguments, 1);
     if (this.handlers[eventType]) {
-      this.handlers[eventType].forEach((item, idx) => {
+      this.handlers[eventType].forEach((idx) => {
         this.handlers[eventType][idx].apply(this, handlerArgs);
       });
     }
