@@ -16,11 +16,31 @@ Function.prototype._call_ = function (obj, ...args) {
  * 手写apply
  */
 
+Function.prototype._apply_ = function (context, args) {
+  // 判断是否是undefined和null
+  if (typeof context === "undefined" || context === null) {
+    context = window;
+  }
+  let fnSymbol = Symbol();
+  context[fnSymbol] = this;
+  let result = context[fnSymbol](...args);
+  // delete context[fn];
+  return result;
+};
+
+// 调用apply函数测试代码
+const numbers = [5, 6, 2, 3, 7];
+const max = Math.max._apply_(null, numbers);
+console.log(max);
+
 /**
  * 手写bind
  * 1. 返回一个函数，绑定this, 传递预设的参数
  */
-Function.prototype._bind_ = function (context = window, ...args1) {
+Function.prototype._bind_ = function (context, ...args1) {
+  if (typeof context === "undefined" || context === null) {
+    context = window;
+  }
   let self = this;
   return function (...arg2) {
     return self.apply(context, args1.concat(arg2));
