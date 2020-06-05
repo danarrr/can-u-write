@@ -2,7 +2,7 @@
  * 简易描述下promise常用的几种状态
  * 拆分为几个功能点分开实现
  * pending, resolve, reject then回调函数
- * catch
+ * .catch .finally .race .all 
  */
 
 // 先来回忆下promise的调用
@@ -77,50 +77,82 @@ begin().then(data => {
 }).then(res => {
   console.log(res)
 }); 
+
 // 之所以可以链式调用, 是因为每个then函数会返回一个新的promise对象
-// so 扩展下上面的代码
-
+// 完整代码
 function myPromise(executor) {
-    let _this = this
-    _this.$$status = 'pending' // 声明初始状态
-    _this.failCallBack = undefined; 
+    let _this = this;
+    _this.$$status = "pending"; // 声明初始状态
+    _this.result = undefined;
+    _this.failCallBack = undefined;
     _this.successCallback = undefined;
-   
-    setTimeout(_ => {
-        executor(_this.resolve.bind(_this))
-    })
+    _this.failDefer = undefined;
+    _this.successDefer = undefined;
+    executor(this.resolve.bind(this), this.reject.bind(this));
 }
-   
-   
-    // function reject(){
-    //     // 修改状态值
-    //     if(_this.$$status === 'pending'){
-    //         _this.$$status = 'fail'
-    //         _this.failCallBack(opts)
-    //     }
-    // }
-// }
-
-myPromise.prototype.resolve = function(opts){
-    // 修改状态值
-    if(_this.$$status === 'pending'){
-        _this.$$status = 'full'
-        let result = _this.successCallback(opts)// 存储调用resolve传进来的成功值
-        if(result && result instanceof myPromise){
-            result.then(_this.successDefer, _this.failDefer)
-            return  ''
+  
+  myPromise.prototype = {
+    constructor: this,
+    resolve: function (params) {
+      if (this.$$status === "pending") {
+        this.$$status = "success"; // 修改状态
+  
+        if (!this.successCallback) return;
+        let result = this.successCallback(params);
+        if (result && result instanceof myPromise) {
+          result.then(this.successDefer, this.failDefer);
+          return "";
         }
-        _this.successDefer(result)
-    }
-}
-
-// 拓展then回调函数接收结果
-myPromise.prototype.then = function (full,fail){
-    this.successCallback = full
-    this.failCallBack = fail
-    let newMyPromise = new myPromise(_ => {})
-    this.successDefer = newMyPromise.resolve.bind(newMyPromise)
-    this.failDefer = newMyPromise.resolve.bind(newMyPromise)
-
-    return newMyPromise
-}
+        this.successDefer(result);
+      }
+    },
+    reject: function (params) {
+      if (this.$$status === "pending") {
+        this.$$status = "fail";
+        if (!this.failCallback) return;
+        let result = this.failCallback(params);
+        if (result && result instanceof myPromise) {
+          result.then(this.successDefer, this.failDefer);
+          return "";
+        }
+  
+        this.failDefer(result);
+      }
+    },
+    then: function (full, fail) {
+      let newMyPromise = new myPromise((_) => {});
+      this.successCallback = full;
+      this.failCallback = fail;
+      this.successDefer = newMyPromise.resolve.bind(newMyPromise);
+      this.failDefer = newMyPromise.reject.bind(newMyPromise);
+      return newMyPromise;
+    },
+  };
+  
+  //测试代码
+  new myPromise(function (res, rej) {
+    setTimeout((_) => res("成功"), 500);
+  })
+    .then((res) => {
+      console.log(res);
+      return "第一个.then 成功";
+    })
+    .then((res) => {
+      console.log(res);
+      return new myPromise(function (resolve) {
+        setTimeout((_) => resolve("第二个.then 成功"), 500);
+      });
+    })
+    .then((res) => {
+      console.log(res);
+      return new myPromise(function (resolve, reject) {
+        setTimeout((\_) => reject("第三个失败"), 1000);
+      });
+    })
+    .then(
+      (res) => {
+        res;
+        console.log(res);
+      },
+      (rej) => console.log(rej)
+    );
