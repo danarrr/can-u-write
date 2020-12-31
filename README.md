@@ -16,7 +16,7 @@
 - 函数currying
 - jsonp的实现
 - 实现instanceof
-- sleep函数
+- sleep函数 ddddd
 
 
 
