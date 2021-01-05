@@ -12,10 +12,11 @@
 - [jsonp的实现](https://segmentfault.com/a/1190000007665361)
 - [实现类的继承](https://github.com/danarrr/can-u-write/blob/master/class.js)
 - [sleep函数](https://github.com/danarrr/can-u-write/blob/master/sleep.js)
-- 写一个函数，可以控制最大并发数
+- [写一个函数，可以控制最大并发数](https://github.com/danarrr/can-u-write/blob/master/promisAllFetch.js)
+- [实现简单模板编译](https://github.com/danarrr/can-u-write/blob/master/template.js)
 - 实现instanceof
 - promise.all promise.retry
-- 手动写个弹窗
-- 实现简单的模板编译
+- 手动写个弹窗的
+
 
 
