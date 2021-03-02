@@ -18,7 +18,7 @@ function deepClone(obj, map = new Map()) {
 
   // 判断是否为数组
   let cloneTarget = Array.isArray(obj) ? [] : {};
-  if (map.get(obj)) return map.get(target);
+  if (map.get(obj)) return map.get(cloneTarget);
 
   map.set(obj, cloneTarget);
   // 递归
