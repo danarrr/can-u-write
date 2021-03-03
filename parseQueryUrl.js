@@ -1,5 +1,5 @@
 // 解析url参数为对象
-function parseQueryStrin(url) {
+function parseQueryString(url) {
     // 当前网站域名信息可以直接获取
     // const {
     //     protocol, 
