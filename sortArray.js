@@ -8,7 +8,7 @@ function unique(nums){
             result.add(num)
         }
     }
-    return Array.from(result)
+    return Array.from(result) //记得最后一步是转化数据格式
 }
 
 function sort(nums){
