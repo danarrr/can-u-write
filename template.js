@@ -39,3 +39,13 @@ function render(tmp, data){
     template = template.replace(/\{\{((?:.|\r?\n)+?)\}\}/g, '') // 过滤掉转义字符串
     console.log("编译之后的模板", template)
 }
+
+
+
+// 笔试题二：实现${xxx}模板编译
+let name = 'web';
+let age = 10;
+let str = '你好，${name} 已经 ${age}岁了'
+str = str.replace(/\$\{([^}]*)\}/g,function(){
+    return eval(arguments[1]); // 找到对应变量转换成string
+})
