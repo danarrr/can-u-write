@@ -14,6 +14,7 @@
 - [sleep函数](https://github.com/danarrr/can-u-write/blob/master/sleep.js)
 - [写一个函数，可以控制最大并发数](https://github.com/danarrr/can-u-write/blob/master/promisAllFetch.js)
 - [实现简单模板编译](https://github.com/danarrr/can-u-write/blob/master/template.js)
+- [求页面元素嵌套的最深层级](https://github.com/danarrr/can-u-write/blob/master/counterNode.js)
 - 实现instanceof
 - promise.all promise.retry
 - 手动写个弹窗的
