@@ -1,5 +1,4 @@
-### 手写一个 XXX 系列
-
+### 手写题
 - [手写 new 操作符](https://github.com/danarrr/can-u-write/blob/master/new.js)
 - [手写 call/apply/bind](https://github.com/danarrr/can-u-write/blob/master/call.js)
 - [手写防抖节流](https://github.com/danarrr/can-u-write/blob/master/throttle.js)
@@ -18,6 +17,8 @@
 - 实现instanceof
 - promise.all promise.retry
 - 手动写个弹窗的
+
+### 造轮子
 - 手写洋葱模型函数
   
 
