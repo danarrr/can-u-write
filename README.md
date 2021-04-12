@@ -18,6 +18,8 @@
 - 实现instanceof
 - promise.all promise.retry
 - 手动写个弹窗的
+- 手写洋葱模型函数
+  
 
 
 
