@@ -21,6 +21,7 @@
 
 ### 造轮子
 - [手写洋葱模型函数](https://github.com/danarrr/can-u-write/blob/master/compose.js)
+- 实现水印库
   
 
 
