@@ -17,6 +17,7 @@
 - 实现instanceof
 - promise.all promise.retry
 - 手动写个弹窗的
+- 实现大文件上传，包括前后端
 
 ### 造轮子
 - [手写洋葱模型函数](https://github.com/danarrr/can-u-write/blob/master/compose.js)
