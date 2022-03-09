@@ -58,7 +58,25 @@ const middlewares = [fn1,fn2,fn3] // 把函数用数组的方式传入
 const finalFn = compose(middlewares)
 finalFn()
 
+// 递归的写法 辅助理解
+function originCompose(){
+    return Promise.resolve(
+        fn1(function next(){
+            return Promise.resolve(
+                fn2(function next(){
+                    return Promise.resolve(
+                        fn3(function next(){
+                            return Promise.resolve()
+                        })
+                    )
+                })
+            )
+        })
+    )
+}
+originCompose().then(res => console.log(res)).catch(err => console.log(err))
 
+// 洋葱模型
 function compose (middlewares){
     return function() {
         return dispatch(0)
@@ -76,7 +94,6 @@ function compose (middlewares){
             )
         }
     }
-    
 }
 
 // koa源码学习todo
