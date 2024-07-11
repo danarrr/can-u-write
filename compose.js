@@ -96,7 +96,7 @@ function compose (middlewares){
     }
 }
 
-// koa源码学习todo
+// koa源码学习 https://zhuanlan.zhihu.com/p/470944919
 // 1.context上下文的执行顺序
 // 2.application 应用抽离
 // 3.中间件原理 洋葱模型 √

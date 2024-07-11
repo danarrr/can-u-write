@@ -7,7 +7,7 @@ function parseQueryString(url) {
     //     search,
     // } = window.location
     
-    const paramStr = url.match(/.+\?(.+)$/)[1] // 截取 ？后的内容
+    const paramStr = url.match(/.+\?(.+)$/)[1] // 截取 ？后的内容 .+正则表示任意字符
     const paramsArr = paramStr.split('&')
     let paramsObj = {} // 最终返回的对象
     paramsArr.forEach(param => {

@@ -12,7 +12,7 @@ function Child() {
     this.type = 'child'
 }
 // 1.不是`指向父类实例`，而是`指向父类原型`
-// 2.防止修改Chile类影响Parent类，加多浅拷贝
+// 2.防止修改Child类影响Parent类，加多浅拷贝
 Child.prototype = Object.create(Parent.prototype);
 Child.prototype.constructor = Child
 

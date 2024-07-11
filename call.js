@@ -4,16 +4,21 @@
  * 2. 执行或删除这个函数
  * 3. 指定this到函数并传入参数并执行函数
  * 4. 如果没传参，则默认指向window
+ * 
+ * func.call(thisArg, arg1, arg2, ...); // call的调用方式
  */
+
 Function.prototype._call_ = function (obj, ...args) {
   obj = obj || window;
   obj._fn_ = this;
   obj._fn_(...args);
-  delete obj._fn_;
+  delete obj._fn_; // 删除临时属性，保持后面再起调用代码干净
 };
 
 /**
  * 手写apply
+ * 
+ * func.apply(thisArg, [argsArray]); // apply的调用方式
  */
 
 Function.prototype._apply_ = function (context, args) {
@@ -35,7 +40,8 @@ console.log(max);
 
 /**
  * 手写bind
- * 1. 返回一个函数，绑定this, 传递预设的参数
+ * 1. 返回一个函数，绑定this【重点】, 传递预设的参数
+ * let boundFunc = func.bind(thisArg, arg1, arg2, ...); // 第一个参数是环境变量
  */
 Function.prototype._bind_ = function (context, ...args1) {
   if (typeof context === "undefined" || context === null) {

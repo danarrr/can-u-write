@@ -14,8 +14,12 @@
 - [写一个函数，可以控制最大并发数](https://github.com/danarrr/can-u-write/blob/master/promisAllFetch.js)
 - [实现简单模板编译](https://github.com/danarrr/can-u-write/blob/master/template.js)
 - [求页面元素嵌套的最深层级](https://github.com/danarrr/can-u-write/blob/master/counterNode.js)
+- [node 手写题:处理多个并发, 限制最大并发数](https://github.com/danarrr/can-u-write/blob/master/nodeConcurrentRequests.js)
+- node 实现一个console.log
 - 实现instanceof
 - promise.all promise.retry
+- 自定义useValue函数
+- LRU
 
 ### 造轮子
 - [手写洋葱模型函数](https://github.com/danarrr/can-u-write/blob/master/compose.js)
