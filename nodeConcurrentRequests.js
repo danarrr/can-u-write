@@ -42,7 +42,7 @@ const concurrencyRequest = (urls, maxNum) => {
   
 
     const times = Math.min(url.length, maxNum)
-    for(let i=0; i<times; i++){
+    for(let i=0; i<times; i++){ // 可以理解为maxNum个线程（坑位）；每个坑位里都一直执行url, 当当前url执行完毕之后立马进入请求下一个url
       request()
     }
   })
