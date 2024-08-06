@@ -6,7 +6,7 @@
 - [实现柯里化函数](https://github.com/danarrr/can-u-write/blob/master/curring.js)
 - [手写 eventbus 事件](https://github.com/danarrr/can-u-write/blob/master/eventBus.js)
 - [手写一个 promise](https://github.com/danarrr/can-u-write/blob/master/promise.js)
-- [手写数组去重并排序](https://github.com/danarrr/can-u-write/blob/master/sortArray.js)
+- [手写数组快排和去重](https://github.com/danarrr/can-u-write/blob/master/sortArray.js)
 - [解析 url 为对象](https://github.com/danarrr/can-u-write/blob/master/parseQueryUrl.js)
 - [jsonp的实现](https://segmentfault.com/a/1190000007665361)
 - [实现类的继承](https://github.com/danarrr/can-u-write/blob/master/class.js)
@@ -19,7 +19,7 @@
 - 实现instanceof
 - promise.all promise.retry
 - 自定义useValue函数
-- LRU
+- [LRU](https://github.com/danarrr/can-u-write/blob/master/LRU.js)
 
 ### 造轮子
 - [手写洋葱模型函数](https://github.com/danarrr/can-u-write/blob/master/compose.js)
